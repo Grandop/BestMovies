@@ -10,7 +10,7 @@ export const Bar = styled(View)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 5px 10px;
   gap: 16px;
 `
 
@@ -35,6 +35,7 @@ export const Input = styled(TextInput)`
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   color: ${({ theme }) => theme.colors.primary_200};
   padding: 0;
+  margin-left: 10px;
 `
 
 export const ClearButton = styled(TouchableOpacity)`
