@@ -1,0 +1,47 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended",
+    "prettier",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "prettier", "react", "react-native"],
+  "rules": {
+    "react/tsx-filename-extension": [
+      1,
+      { "extensions": [".ts", ".tsx", ".d.ts"] }
+    ],
+    "no-use-before-define": ["error", { "variables": false }],
+    "react/props-types": [
+      "error",
+      { "ignore": ["navigation", "navigation.navigate"] }
+    ],
+    "quotes": [
+      "error",
+      "double",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": true,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+        "allowSeparatedGroups": false
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}
