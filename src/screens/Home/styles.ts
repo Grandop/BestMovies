@@ -1,5 +1,5 @@
-import { Text, View } from 'react-native'
-import styled from 'styled-components/native'
+import { View } from 'react-native'
+import styled from 'styled-components'
 
 export const Container = styled(View)`
   flex: 1;
@@ -7,7 +7,7 @@ export const Container = styled(View)`
 
 export const GradientBackground = styled(View)`
   flex: 1;
-  background: #0f0f23;
+  background-color: ${({ theme }) => theme.colors.primary_100};
   padding: 0 16px;
 `
 

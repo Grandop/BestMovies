@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FlatList, SafeAreaView, TouchableOpacity } from 'react-native'
+import { FlatList, TouchableOpacity } from 'react-native'
 import * as S from './styles'
 import { RootStackParamList, Routes } from '@/constants/routes'
 import {
@@ -32,31 +32,29 @@ export const Home = () => {
     <S.Container>
       <Navbar search={search} setSearch={setSearch} />
       <S.GradientBackground>
-        <SafeAreaView>
-          <Feedback ordered={ordered} search={search} />
-          <WelcomeView search={search} />
-          {ordered.length > 0 && (
-            <FlatList
-              data={ordered}
-              numColumns={2}
-              keyExtractor={(item) => item.id.toString()}
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ paddingBottom: 150 }}
-              columnWrapperStyle={{ justifyContent: 'space-between' }}
-              ItemSeparatorComponent={() => <S.MovieSeparator />}
-              renderItem={({ item }) => (
-                <TouchableOpacity
-                  activeOpacity={0.8}
-                  onPress={() =>
-                    navigation.navigate(Routes.MOVIE_DETAIL, { id: item.id })
-                  }
-                >
-                  <MovieCard movie={item} />
-                </TouchableOpacity>
-              )}
-            />
-          )}
-        </SafeAreaView>
+        <Feedback ordered={ordered} search={search} />
+        <WelcomeView search={search} />
+        {ordered.length > 0 && (
+          <FlatList
+            data={ordered}
+            numColumns={2}
+            keyExtractor={(item) => item.id.toString()}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{ paddingBottom: 20 }}
+            columnWrapperStyle={{ justifyContent: 'space-between' }}
+            ItemSeparatorComponent={() => <S.MovieSeparator />}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigation.navigate(Routes.MOVIE_DETAIL, { id: item.id })
+                }
+              >
+                <MovieCard movie={item} />
+              </TouchableOpacity>
+            )}
+          />
+        )}
       </S.GradientBackground>
     </S.Container>
   )

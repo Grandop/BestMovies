@@ -1,9 +1,10 @@
 import { Image, ScrollView, Text, View } from 'react-native'
-import styled from 'styled-components/native'
+import styled from 'styled-components'
+import { Typography } from '@/components/Typography'
 
 export const ScrollContainer = styled(ScrollView)`
   flex: 1;
-  background-color: #0f0f23;
+  background-color: ${({ theme }) => theme.colors.primary_100};
 `
 
 export const BackdropWrapper = styled(View)`
@@ -27,19 +28,19 @@ export const Overlay = styled(View)`
 export const Poster = styled(Image)`
   width: 120px;
   height: 180px;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.fontSizes.xs};
   position: absolute;
   bottom: -40px;
   left: 16px;
   border-width: 2px;
-  border-color: #0f0f23;
+  border-color: ${({ theme }) => theme.colors.primary_100};
   z-index: 100;
 `
 
 export const Container = styled(View)`
   padding: 16px;
   padding-top: 50px;
-  background-color: #0f0f23;
+  background-color: ${({ theme }) => theme.colors.primary_100};
   height: 100%;
 `
 
@@ -50,18 +51,22 @@ export const Row = styled(View)`
   margin-bottom: 12px;
 `
 
-export const Title = styled(Text)`
-  font-size: 22px;
-  font-weight: bold;
+export const Title = styled(Typography).attrs(({ theme }) => ({
+  color: 'white',
+  fontSize: theme.fontSizes.lg,
+  fontWeight: 'bold'
+}))`
   flex: 1;
-  color: #fff;
 `
 
-export const Rating = styled(Text)<{ $color: string }>`
-  font-size: 18px;
-  font-weight: bold;
-  color: ${({ $color }) => $color};
+export const Rating = styled(Typography).attrs<{ $color?: string }>(
+  ({ theme }) => ({
+    fontSize: theme.fontSizes.lg,
+    fontWeight: 'bold'
+  })
+)`
   margin-left: 12px;
+  color: ${({ $color }) => $color};
 `
 
 export const ChipContainer = styled(View)`
@@ -71,19 +76,21 @@ export const ChipContainer = styled(View)`
   margin-bottom: 16px;
 `
 
-export const Chip = styled(Text)`
-  display: flex;
-  background-color: #1e293b;
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 16px;
-  font-size: 12px;
+export const Chip = styled(Typography).attrs(({ theme }) => ({
+  color: 'white',
+  fontSize: theme.fontSizes.xs
+}))`
+  line-height: 22px;
+  background-color: ${({ theme }) => theme.colors.primary_200};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
   margin-right: 8px;
   margin-bottom: 8px;
+  padding: 6px 10px;
 `
 
-export const Overview = styled(Text)`
-  font-size: 15px;
+export const Overview = styled(Typography).attrs(({ theme }) => ({
+  color: 'white',
+  fontSize: theme.fontSizes.sm
+}))`
   line-height: 22px;
-  color: #fff;
 `

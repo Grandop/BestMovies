@@ -1,7 +1,9 @@
 import * as S from './styles'
 import { MoviesResults } from '@/entities/movies'
+import { useTheme } from 'styled-components'
 import { IMAGE_URL } from '@/constants/api'
 import { handleRatingColor } from '@/utils/handleRatingColor'
+import { Typography } from '../Typography'
 
 interface MovieCardProps {
   movie: MoviesResults
@@ -9,6 +11,7 @@ interface MovieCardProps {
 
 export const MovieCard = ({ movie }: MovieCardProps) => {
   const color = handleRatingColor(movie.vote_average)
+  const theme = useTheme()
 
   return (
     <S.Card>
@@ -20,13 +23,13 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
         />
       </S.PosterContainer>
       <S.Title>{movie.title}</S.Title>
-      <S.Date>
+      <Typography color="white" fontSize={theme.fontSizes.xs}>
         {new Date(movie.release_date).toLocaleDateString('pt-BR', {
           day: '2-digit',
           month: 'short',
           year: 'numeric'
         })}
-      </S.Date>
+      </Typography>
       <S.Rating $color={color}>{movie.vote_average.toFixed(1)}</S.Rating>
     </S.Card>
   )

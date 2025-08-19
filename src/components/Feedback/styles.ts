@@ -1,48 +1,48 @@
 import { Text, View } from 'react-native'
 import { styled } from 'styled-components'
+import { Typography } from '../Typography'
 
 export const SearchInfo = styled(View)`
   margin: 16px 0;
 `
 
-export const SearchResultText = styled(Text)`
-  font-size: 14px;
-  color: #e2e8f0;
+export const SearchResultText = styled(Typography).attrs(({ theme }) => ({
+  color: 'white',
+  fontSize: theme.fontSizes.sm,
+  fontWeight: 'medium'
+}))`
   text-align: center;
-  font-weight: 500;
-  background: #1e293b;
+  min-height: 40px;
   padding: 12px 16px;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
   margin-bottom: 16px;
+  background-color: ${({ theme }) => theme.colors.primary_200};
 `
 
 export const EmptyContainer = styled(View)`
   align-items: center;
   justify-content: center;
   padding: 48px 20px;
-  background: #1e293b;
-  border-radius: 20px;
+  background: ${({ theme }) => theme.colors.primary_200};
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
   margin: 20px 0;
 `
 
-export const EmptyIcon = styled(Text)`
-  font-size: 48px;
-  margin-bottom: 16px;
-`
-
-export const EmptyText = styled(Text)`
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
+export const EmptyText = styled(Typography).attrs(({ theme }) => ({
+  color: 'white',
+  fontSize: theme.fontSizes.md,
+  fontWeight: 'bold'
+}))`
   margin-bottom: 8px;
   text-align: center;
 `
 
-export const EmptySubtext = styled(Text)`
-  font-size: 14px;
-  color: #94a3b8;
+export const EmptySubtext = styled(Typography).attrs(({ theme }) => ({
+  color: 'primary_400',
+  fontSize: theme.fontSizes.md,
+  fontWeight: 'regular'
+}))`
   text-align: center;
-  font-weight: 400;
 `
 
 export const LogoContainer = styled(View)`

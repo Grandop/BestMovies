@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "movies_app",
-    "slug": "movies_app",
+    "name": "BestMovies",
+    "slug": "BestMovies",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/appLogo.png",

@@ -1,7 +1,9 @@
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import * as S from './styles'
 import { Feather } from '@expo/vector-icons'
+import { useTheme } from 'styled-components'
 import { Logo } from '../Logo'
+import { Typography } from '../Typography'
 
 interface NavbarProps {
   search: string
@@ -9,13 +11,13 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ search, setSearch }: NavbarProps) => {
+  const theme = useTheme()
   return (
     <S.NavContainer>
       <SafeAreaView>
         <S.Bar>
           <S.LogoContainer>
             <Logo />
-            <S.LogoText>BestMovies</S.LogoText>
           </S.LogoContainer>
           <S.SearchContainer>
             <Feather name="search" size={20} color="#64748b" />
@@ -27,7 +29,13 @@ export const Navbar = ({ search, setSearch }: NavbarProps) => {
             />
             {search && (
               <S.ClearButton onPress={() => setSearch('')}>
-                <S.ClearIcon>✕</S.ClearIcon>
+                <Typography
+                  color="primary_500"
+                  fontSize={theme.fontSizes.xs}
+                  fontWeight="bold"
+                >
+                  ✕
+                </Typography>
               </S.ClearButton>
             )}
           </S.SearchContainer>
