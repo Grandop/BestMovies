@@ -1,11 +1,5 @@
 import { useState } from 'react'
-import {
-  ActivityIndicator,
-  FlatList,
-  SafeAreaView,
-  Text,
-  TouchableOpacity
-} from 'react-native'
+import { FlatList, SafeAreaView, TouchableOpacity } from 'react-native'
 import * as S from './styles'
 import { RootStackParamList, Routes } from '@/constants/routes'
 import {
@@ -14,8 +8,11 @@ import {
 } from '@/store/services/movies'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { Feedback } from '@/components/Feedback'
+import { Loader } from '@/components/Loader'
 import { MovieCard } from '@/components/MovieCard'
 import { Navbar } from '@/components/Navbar'
+import { WelcomeView } from '@/components/WelcomeView'
 
 export const Home = () => {
   const [search, setSearch] = useState('')
@@ -27,31 +24,40 @@ export const Home = () => {
   const movies = (search ? searchData?.results : moviesData?.results) || []
   const ordered = [...movies].sort((a, b) => b.vote_average - a.vote_average)
 
-  if (isLoading) return <ActivityIndicator size="large" color="#000" />
+  if (isLoading) {
+    return <Loader title="Carregando filmes..." />
+  }
 
   return (
     <S.Container>
-      <SafeAreaView>
-        <Navbar search={search} setSearch={setSearch} />
-        {ordered.length === 0 ? (
-          <S.EmptyText>Não encontramos resultados para "{search}"</S.EmptyText>
-        ) : (
-          <FlatList
-            data={ordered}
-            numColumns={2}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate(Routes.MOVIE_DETAIL, { id: item.id })
-                }
-              >
-                <MovieCard movie={item} />
-              </TouchableOpacity>
-            )}
-          />
-        )}
-      </SafeAreaView>
+      <Navbar search={search} setSearch={setSearch} />
+      <S.GradientBackground>
+        <SafeAreaView>
+          <Feedback ordered={ordered} search={search} />
+          <WelcomeView search={search} />
+          {ordered.length > 0 && (
+            <FlatList
+              data={ordered}
+              numColumns={2}
+              keyExtractor={(item) => item.id.toString()}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={{ paddingBottom: 150 }}
+              columnWrapperStyle={{ justifyContent: 'space-between' }}
+              ItemSeparatorComponent={() => <S.MovieSeparator />}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  onPress={() =>
+                    navigation.navigate(Routes.MOVIE_DETAIL, { id: item.id })
+                  }
+                >
+                  <MovieCard movie={item} />
+                </TouchableOpacity>
+              )}
+            />
+          )}
+        </SafeAreaView>
+      </S.GradientBackground>
     </S.Container>
   )
 }

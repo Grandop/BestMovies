@@ -8,9 +8,28 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export const Navigators = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={Routes.HOME} component={Home} />
-      <Stack.Screen name={Routes.MOVIE_DETAIL} component={MovieDetail} />
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#0f0f23'
+        }
+      }}
+    >
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name={Routes.HOME}
+        component={Home}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: '',
+          headerBackButtonDisplayMode: 'minimal',
+          headerTintColor: '#fff'
+        }}
+        name={Routes.MOVIE_DETAIL}
+        component={MovieDetail}
+      />
     </Stack.Navigator>
   )
 }

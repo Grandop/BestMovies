@@ -1,14 +1,16 @@
 import { Text, View } from 'react-native'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 
 export const Container = styled(View)`
   flex: 1;
-  background-color: #fff;
-  padding: 10px;
 `
 
-export const EmptyText = styled(Text)`
-  margin-top: 20px;
-  text-align: center;
-  font-size: 16px;
+export const GradientBackground = styled(View)`
+  flex: 1;
+  background: #0f0f23;
+  padding: 0 16px;
+`
+
+export const MovieSeparator = styled(View)`
+  height: 20px;
 `
