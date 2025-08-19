@@ -7,6 +7,7 @@ import { RouteProp, useRoute } from '@react-navigation/native'
 import { IMAGE_URL } from '@/constants/api'
 import { handleRatingColor } from '@/utils/handleRatingColor'
 import { Loader } from '@/components/Loader'
+import { PopularityBar } from '@/components/PopularityBar'
 
 export const MovieDetail = () => {
   const route = useRoute<RouteProp<RootStackParamList, Routes.MOVIE_DETAIL>>()
@@ -52,6 +53,7 @@ export const MovieDetail = () => {
               {data?.vote_count} votos
             </S.Chip>
           </S.ChipContainer>
+          <PopularityBar popularity={data?.popularity ?? 0} />
           <S.Overview>{data?.overview}</S.Overview>
         </S.Container>
       </SafeAreaView>

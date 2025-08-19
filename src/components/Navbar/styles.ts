@@ -15,7 +15,7 @@ export const Bar = styled(View)`
 `
 
 export const LogoContainer = styled(View)`
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: 8px;
 `
@@ -45,4 +45,16 @@ export const ClearButton = styled(TouchableOpacity)`
   justify-content: center;
   align-items: center;
   margin-left: 8px;
+`
+
+export const Category = styled(View)`
+  background: ${({ theme }) => theme.colors.primary_300};
+  padding: 4px 10px;
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  margin-left: 8px;
+`
+
+export const HeaderRow = styled(View)`
+  display: flex;
+  flex-direction: row;
 `

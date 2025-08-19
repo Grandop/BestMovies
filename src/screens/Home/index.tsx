@@ -1,13 +1,7 @@
-import { useState } from 'react'
 import { FlatList, TouchableOpacity } from 'react-native'
+import { useHome } from './hook/useHome'
 import * as S from './styles'
-import { RootStackParamList, Routes } from '@/constants/routes'
-import {
-  useGetMoviesQuery,
-  useSearchMoviesQuery
-} from '@/store/services/movies'
-import { useNavigation } from '@react-navigation/native'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { Routes } from '@/constants/routes'
 import { Feedback } from '@/components/Feedback'
 import { Loader } from '@/components/Loader'
 import { MovieCard } from '@/components/MovieCard'
@@ -15,14 +9,7 @@ import { Navbar } from '@/components/Navbar'
 import { WelcomeView } from '@/components/WelcomeView'
 
 export const Home = () => {
-  const [search, setSearch] = useState('')
-  const { data: moviesData, isLoading } = useGetMoviesQuery()
-  const { data: searchData } = useSearchMoviesQuery({ query: search })
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList>>()
-
-  const movies = (search ? searchData?.results : moviesData?.results) || []
-  const ordered = [...movies].sort((a, b) => b.vote_average - a.vote_average)
+  const { isLoading, navigation, ordered, setSearch, search } = useHome()
 
   if (isLoading) {
     return <Loader title="Carregando filmes..." />

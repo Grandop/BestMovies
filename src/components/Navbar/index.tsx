@@ -18,6 +18,15 @@ export const Navbar = ({ search, setSearch }: NavbarProps) => {
         <S.Bar>
           <S.LogoContainer>
             <Logo />
+            <S.Category>
+              <Typography
+                color="white"
+                fontSize={theme.fontSizes.sm}
+                fontWeight="bold"
+              >
+                Trending
+              </Typography>
+            </S.Category>
           </S.LogoContainer>
           <S.SearchContainer>
             <Feather name="search" size={20} color="#64748b" />
