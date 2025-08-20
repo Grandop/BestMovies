@@ -2,6 +2,17 @@
 
 App de listagem de filmes desenvolvida com React Native, TypeScript, Redux Toolkit que permite a listagem de filmes que estão em Trending Topics na semana, com as seguintes características:
 
+## Como rodar o projeto
+
+1 - Instalar dependêcias
+  `pnpm install`
+
+2 - Iniciar o projeto
+  `pnpm start`
+
+3 - Abra no navegador 
+  `escolha entre android ou iOS`
+
 # iOS
 
 https://github.com/user-attachments/assets/0ff1a637-aeca-4f8c-8793-091eb4655f87
