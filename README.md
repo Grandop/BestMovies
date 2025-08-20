@@ -2,6 +2,14 @@
 
 App de listagem de filmes em tendência da semana
 
+# iOS
+
+https://github.com/user-attachments/assets/0ff1a637-aeca-4f8c-8793-091eb4655f87
+
+# Android
+
+https://github.com/user-attachments/assets/a4d66575-35b0-4e2d-bff9-cc53de4ea48b
+
 ## Estrutura de pastas (Projeto)
 
 ```bash
