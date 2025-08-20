@@ -1,6 +1,6 @@
 # Best Movies
 
-App de listagem de filmes em tendência da semana
+App de listagem de filmes desenvolvida com React Native, TypeScript, Redux Toolkit que permite a listagem de filmes que estão em Trending Topics na semana, com as seguintes características:
 
 # iOS
 
