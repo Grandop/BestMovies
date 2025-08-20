@@ -10,7 +10,7 @@ App de listagem de filmes desenvolvida com React Native, TypeScript, Redux Toolk
 2 - Iniciar o projeto
   `pnpm start`
 
-3 - Abra no navegador 
+3 - Escolhe o dispositivo
   `escolha entre android ou iOS`
 
 # iOS
