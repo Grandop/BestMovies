@@ -10,7 +10,8 @@ export const Bar = styled(View)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 10px;
+  padding: 10px 10px;
+
   gap: 16px;
 `
 
@@ -24,7 +25,7 @@ export const SearchContainer = styled(View)`
   flex: 1;
   flex-direction: row;
   align-items: center;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.primary_300};
   border-radius: ${({ theme }) => theme.fontSizes.xs};
   padding: 12px 16px;
 `
@@ -33,7 +34,7 @@ export const Input = styled(TextInput)`
   flex: 1;
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  color: ${({ theme }) => theme.colors.primary_200};
+  color: ${({ theme }) => theme.colors.white};
   padding: 0;
   margin-left: 10px;
 `
@@ -42,7 +43,7 @@ export const ClearButton = styled(TouchableOpacity)`
   width: 24px;
   height: 24px;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
-  background: ${({ theme }) => theme.colors.primary_300};
+  background: ${({ theme }) => theme.colors.primary_500};
   justify-content: center;
   align-items: center;
   margin-left: 8px;

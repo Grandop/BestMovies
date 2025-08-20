@@ -29,17 +29,17 @@ export const Navbar = ({ search, setSearch }: NavbarProps) => {
             </S.Category>
           </S.LogoContainer>
           <S.SearchContainer>
-            <Feather name="search" size={20} color="#64748b" />
+            <Feather name="search" size={20} color={theme.colors.primary_500} />
             <S.Input
               placeholder="Buscar filmes..."
-              placeholderTextColor="#64748b"
+              placeholderTextColor={theme.colors.primary_500}
               value={search}
               onChangeText={setSearch}
             />
             {search && (
               <S.ClearButton onPress={() => setSearch('')}>
                 <Typography
-                  color="primary_500"
+                  color="white"
                   fontSize={theme.fontSizes.xs}
                   fontWeight="bold"
                 >

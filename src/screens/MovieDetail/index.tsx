@@ -2,6 +2,7 @@ import { SafeAreaView } from 'react-native'
 import * as S from './styles'
 import { RootStackParamList, Routes } from '@/constants/routes'
 import { useGetMoviesByIdQuery } from '@/store/services/movies'
+import { theme } from '@/theme/theme'
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons'
 import { RouteProp, useRoute } from '@react-navigation/native'
 import { IMAGE_URL } from '@/constants/api'
@@ -41,20 +42,28 @@ export const MovieDetail = () => {
           </S.Row>
           <S.ChipContainer>
             <S.Chip>
-              <Feather name="calendar" size={16} color="#64748b" />{' '}
+              <Feather
+                name="calendar"
+                size={16}
+                color={theme.colors.primary_500}
+              />{' '}
               {new Date(data?.release_date ?? '').toLocaleDateString('pt-BR')}
             </S.Chip>
             <S.Chip>
               <MaterialCommunityIcons
                 name="account-group"
                 size={16}
-                color="#64748b"
+                color={theme.colors.primary_500}
               />{' '}
               {data?.vote_count} votos
             </S.Chip>
           </S.ChipContainer>
           <PopularityBar popularity={data?.popularity ?? 0} />
-          <S.Overview>{data?.overview}</S.Overview>
+          {data?.overview ? (
+            <S.Overview>{data?.overview}</S.Overview>
+          ) : (
+            <S.Overview>Este filme ainda não possui descrição.</S.Overview>
+          )}
         </S.Container>
       </SafeAreaView>
     </S.ScrollContainer>
